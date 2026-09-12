@@ -1,0 +1,5 @@
+image,detected,detection_time_utc,spill_area_km2,confidence,centroid_lat,centroid_lon
+img_0001.jpg,False,2026-09-12T05:23:46+00:00,0.0,0.0,,
+img_0002.jpg,True,2026-09-12T05:23:46+00:00,0.0144,0.77,14.99694,69.97184
+img_0003.jpg,True,2026-09-12T05:23:46+00:00,0.0504,0.873,15.00837,69.99302
+img_0004.jpg,True,2026-09-12T05:23:47+00:00,0.0085,0.767,15.00314,69.98034
