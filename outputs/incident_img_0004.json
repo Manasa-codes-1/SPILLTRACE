@@ -1,0 +1,31 @@
+{
+  "source_image": "img_0004.jpg",
+  "spill_lat": 15.00314,
+  "spill_lon": 69.98034,
+  "probable_origin": {
+    "lat": 15.0207,
+    "lon": 70.0164,
+    "hours_before": 12
+  },
+  "ais_data_source": "Sample/synthetic data (no real vessels in range)",
+  "candidate_vessels": [
+    "VESSEL-CLOSE-2: HIGH EVIDENCE (score: 0.7334846361766396)",
+    "VESSEL-CLOSE-1: MEDIUM EVIDENCE (score: 0.6574428732907848)"
+  ],
+  "risk_report": {
+    "spill_area_km2": 0.0085,
+    "detection_confidence": 0.767,
+    "estimated_tonnes": 0.77,
+    "nosdcp_tier": "Tier 1",
+    "nosdcp_tier_description": "Local spill - handled by port/vessel/terminal operator",
+    "nearest_real_coast_km": 393.9,
+    "nearest_real_coast_coords": [
+      16.0689,
+      73.447
+    ],
+    "time_to_impact_hours": null,
+    "response_priority": "LOW",
+    "recommended_action": "Monitor",
+    "generated_at_utc": "2026-09-13T06:37:14+00:00"
+  }
+}
