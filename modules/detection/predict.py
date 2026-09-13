@@ -16,7 +16,7 @@ import numpy as np
 import torch
 import matplotlib.pyplot as plt
  
-from train_unet import SmallUNet, IMG_SIZE
+from modules.detection.train_unet import SmallUNet, IMG_SIZE
  
 IMAGES_DIR = "data/satellite/test/images"  # held-out test set, never used in training
 LABELS_DIR = "data/satellite/test/labels"

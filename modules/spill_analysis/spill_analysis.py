@@ -13,7 +13,7 @@ IMPORTANT ASSUMPTIONS (state these clearly in your presentation/report):
   GeoTIFF product using Rasterio.
 
 Run from inside SPILLTRACE (with venv active):
-    python modules/detection/spill_analysis.py
+    python modules/spill_analysis/spill_analysis.py
 """
 
 import os
@@ -24,9 +24,8 @@ import numpy as np
 import pandas as pd
 import torch
 
-from train_unet import SmallUNet, IMG_SIZE
-from predict import load_model, predict, clean_mask
-
+from modules.detection.train_unet import IMG_SIZE
+from modules.detection.predict import load_model, predict, clean_mask
 IMAGES_DIR = "data/satellite/train/images"
 
 PIXEL_RESOLUTION_M = 10  # assumed Sentinel-1 GRD resolution, see note above
