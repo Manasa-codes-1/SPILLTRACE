@@ -1,0 +1,36 @@
+BACKWARD INVESTIGATION - CANDIDATE VESSELS
+AIS data source: Sample/synthetic data (no real vessels in range)
+
+VESSEL-CLOSE-2: HIGH EVIDENCE (score: 0.7334846361766396)
+VESSEL-CLOSE-1: MEDIUM EVIDENCE (score: 0.6574428732907848)
+
+
+FORWARD RESPONSE - RISK & ALERT
+
+=================================================================
+MARINE OIL SPILL INCIDENT ALERT
+=================================================================
+Source Image:            img_0004.jpg
+Location:                 15.0031, 69.9803
+Detection Confidence:     76.7%
+Estimated Spill Area:     0.0085 km2
+Estimated Volume:         0.77 tonnes
+                          (Bonn Agreement thickness assumption: 100 microns)
+
+NOS-DCP Classification:   Tier 1 - Local spill - handled by port/vessel/terminal operator
+                          (Indian Coast Guard official tier framework)
+
+Nearest Real Coastline:   393.9 km away
+                          at (16.0689, 73.447)
+Estimated Time-to-Impact: Not predicted to reach real coastline within simulation window (currently 393.9 km from nearest real coastline point (16.0689, 73.447))
+
+RESPONSE PRIORITY:        LOW
+Recommended Action:       Monitor
+
+Note: This is a decision-support alert for an authorized maritime
+response/control centre. It is not a direct alert to Navy or
+government emergency systems. Tonnage is estimated from spill area
+using a standard thickness assumption; coastline data is real
+(Natural Earth); NOS-DCP classification follows India's real,
+official tiered response framework.
+=================================================================
