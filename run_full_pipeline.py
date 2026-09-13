@@ -15,7 +15,7 @@ import random
 from datetime import timedelta
 
 from modules.vessel_analysis.module3_json_loader import load_module3_output
-from modules.vessel_analysis.module3_connector import build_origin_estimate
+from modules.vessel_analysis.module3_connector import build_origin_estimate_from_drift_results
 from modules.vessel_analysis.models import VesselPing
 from modules.vessel_analysis.candidate_filter import find_candidate_vessels
 from modules.vessel_analysis.gfw_ais_loader import fetch_real_ais_pings
@@ -87,7 +87,7 @@ def get_ais_pings(origin):
         return generate_sample_ais_pings(origin), "Sample/synthetic data (GFW fetch failed)"
 
 
-def run_pipeline_for_spill(module3_json_path, detections_csv_path):
+def run_pipeline_for_spill(module3_json_path, drift_results_path):
     print(f"\n{'=' * 70}")
     print(f"LOADING MODULE 3 OUTPUT: {module3_json_path}")
     print(f"{'=' * 70}")
@@ -98,17 +98,11 @@ def run_pipeline_for_spill(module3_json_path, detections_csv_path):
     print(f"  Hours before detection: {m3_data['hours_before']}")
     print(f"  Backward confidence radius: +/-{m3_data['backward_radius_km']} km")
 
-    origin = build_origin_estimate(
-        detections_csv_path=detections_csv_path,
-        source_image=m3_data["source_image"],
-        module3_origin={
-            "lat": m3_data["origin_lat"],
-            "lon": m3_data["origin_lon"],
-            "hours_before": m3_data["hours_before"],
-        },
-        backward_radius_km=m3_data["backward_radius_km"],
-        time_buffer_hours=1.0,
-    )
+    origin = build_origin_estimate_from_drift_results(
+    drift_results_path,
+    m3_data["source_image"],
+    time_buffer_hours=1.0,
+)
 
     print(f"\nOriginEstimate built:")
     print(f"  Location: ({origin.latitude}, {origin.longitude})")
@@ -145,5 +139,5 @@ def run_pipeline_for_spill(module3_json_path, detections_csv_path):
 if __name__ == "__main__":
     run_pipeline_for_spill(
         module3_json_path="modules/drift/module3_output_img_0003.json",
-        detections_csv_path="modules/detection/detections.csv",
+        drift_results_path="modules/drift/drift_results.csv",
     )
