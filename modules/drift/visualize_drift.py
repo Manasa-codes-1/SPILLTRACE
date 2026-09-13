@@ -191,8 +191,7 @@ def plot_corridor(input_data, save_path="drift_corridor.png", current_source="Un
 
     plt.savefig(save_path, dpi=180, bbox_inches="tight", facecolor="white")
     print(f"Plot saved to: {save_path}")
-    plt.show()
-
+    plt.close(fig)
 
 if __name__ == "__main__":
     test_input = {

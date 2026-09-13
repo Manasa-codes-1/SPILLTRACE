@@ -12,7 +12,7 @@ from visualize_drift import plot_corridor
 def get_all_spill_detections():
     """
     Reads REAL detection results sent by a teammate (Module 2),
-    saved as modules/detection/detections.csv.
+    saved as detections.csv.
     Returns ALL confirmed spill detections (detected == True),
     not just the single best one - since each row may represent
     a separate, independent spill event.
@@ -21,7 +21,7 @@ def get_all_spill_detections():
     satellite georeferencing yet, per Module 2's own documentation).
     State this honestly in your presentation.
     """
-    detections = pd.read_csv("modules/detection/detections.csv")
+    detections = pd.read_csv("detections.csv")
 
     required_columns = {"image", "detected", "confidence", "centroid_lat", "centroid_lon"}
     missing = required_columns - set(detections.columns)
@@ -167,6 +167,14 @@ def save_drift_results(detection, input_data, result, current_source,
 
 
 if __name__ == "__main__":
+
+    OUTPUT_PATH = "modules/drift/drift_results.csv"
+
+    # Start a fresh results file for this pipeline run
+    if os.path.exists(OUTPUT_PATH):
+        os.remove(OUTPUT_PATH)
+        print(f"Cleared previous results: {OUTPUT_PATH}")
+
     all_spills = get_all_spill_detections()
     print(f"Found {len(all_spills)} confirmed spill(s) in detections.csv:\n")
     for s in all_spills:
